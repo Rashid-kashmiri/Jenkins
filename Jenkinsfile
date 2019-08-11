@@ -9,6 +9,6 @@ node()
         
     stage "Deploy Application"
         //sh 'rm /var/lib/tomcat/webapps/nvnshoppingcart*'
-        sh 'cp **/*.war /opt/Jenkins'
+        sh 'sudo cp **/*.war /opt/Jenkins/'
 }
 
