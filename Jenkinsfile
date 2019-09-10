@@ -7,7 +7,10 @@ node()
     stage "***COMPILE THE CODE***"
         sh "mvn clean compile"
 		
-    stage "***TEST THE CODE***"
+    stage "***First TEST THE CODE***"
+        sh "mvn test"	
+    
+    stage "***Second TEST THE CODE***"
         sh "mvn test"	
 		
     stage "***PACKAGE THE CODE***"
