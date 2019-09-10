@@ -10,7 +10,7 @@ node()
     stage "***First TEST THE CODE***"
         sh "mvn test"	
     
-    stage "***Second TEST THE CODE***"
+    stage "*******Second TEST THE CODE*******"
         sh "mvn test"	
 		
     stage "***PACKAGE THE CODE***"
