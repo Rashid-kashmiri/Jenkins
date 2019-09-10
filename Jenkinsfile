@@ -9,11 +9,8 @@ node()
 		
     stage "***First TEST THE CODE***"
         sh "mvn test"	
-    
-    stage "*******Second TEST THE CODE*******"
-        sh "mvn test"	
-		
-    stage "***PACKAGE THE CODE***"
+     
+   stage "***PACKAGE THE CODE***"
         sh "mvn package"	
         
     stage "***Deploy Application***"
