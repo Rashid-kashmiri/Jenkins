@@ -2,7 +2,7 @@
 node()
 {
     stage "Checkout Code"
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/nvnshoppingcart.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/mvnrepo.git']]])
     
     stage "***COMPILE THE CODE***"
         sh "mvn clean compile"
