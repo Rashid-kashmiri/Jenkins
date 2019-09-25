@@ -12,7 +12,7 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
     stages {
-        stage('Example') {
+        stage('Example') {  
             steps {
                 echo "Hello ${params.PERSON} and ${env.NODE_NAME}"
 
@@ -24,6 +24,38 @@ pipeline {
 
                 echo "Password: ${params.PASSWORD}"
             }
-        }
+        } 
+   stage ('Checkout Code'){
+    steps {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/nvnshoppingcart.git']]])
     }
 }
+    
+    stage ('***COMPILE THE CODE***'){
+	steps {
+        sh 'mvn clean compile'
+	}
+    }
+		
+    stage ('***First TEST THE CODE***'){
+	steps{
+        sh 'mvn test'	
+	}
+    }
+     
+   stage ('***PACKAGE THE CODE***'){
+	steps{
+        sh "mvn package"
+	}	
+   }
+        
+    stage ('***Deploy Application***'){
+        //sh 'rm /var/lib/tomcat/webapps/nvnshoppingcart*'
+      steps{
+        sh 'sudo cp **/*.war /opt/Jenkins/'	
+	}	
+        
+    }
+   
+}
+
