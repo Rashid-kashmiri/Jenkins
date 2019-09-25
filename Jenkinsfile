@@ -56,6 +56,9 @@ stages {
 	}	
         
     }
+	
+   
+}
 stages {
 	Stage {
 		steps{
@@ -63,7 +66,5 @@ stages {
 		}
 	}	
 	}	
-   
-}
 }
 
