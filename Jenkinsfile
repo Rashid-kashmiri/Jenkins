@@ -49,7 +49,7 @@ stages {
 	}	
    }
         
-    stage ('***Deploy Application***'){
+    stage ('***Deploy to Nexus***'){
         //sh 'rm /var/lib/tomcat/webapps/nvnshoppingcart*'
       steps{
         sh 'sudo cp **/*.war /opt/Jenkins/'	
