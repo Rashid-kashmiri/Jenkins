@@ -12,7 +12,7 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 stages {
-        stage('Example') {  
+        stage('Input-from-Parameters') {  
             steps {
                 echo "Hello ${params.PERSON} and ${env.NODE_NAME}"
 
