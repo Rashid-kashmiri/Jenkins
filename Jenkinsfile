@@ -56,6 +56,13 @@ stages {
 	}	
         
     }
+stages {
+	Stage {
+		steps{
+			echo "Hello from 2nd stages "
+		}
+	}	
+	}	
    
 }
 }
