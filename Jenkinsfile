@@ -11,7 +11,7 @@ pipeline {
 
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-    stages {
+stages {
         stage('Example') {  
             steps {
                 echo "Hello ${params.PERSON} and ${env.NODE_NAME}"
@@ -29,7 +29,7 @@ pipeline {
     steps {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/nvnshoppingcart.git']]])
     }
-}
+	}
     
     stage ('***COMPILE THE CODE***'){
 	steps {
@@ -57,5 +57,6 @@ pipeline {
         
     }
    
+}
 }
 
