@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                echo "Hello ${params.PERSON} and ${env.EXECUTOR_NUMBER}"
+                echo "Hello ${params.PERSON} and ${env.NODE_NAME}"
 
                 echo "Biography: ${params.BIOGRAPHY}"
 
