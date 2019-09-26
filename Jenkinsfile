@@ -1,12 +1,8 @@
 pipeline {
 	
- agent any
-	
-stages {
-	
-	timestamps {
-    // some block
-		}
+agent any
+options { timestamps () }	
+stages {	
 	stage ('Checkout Code'){
 		steps {	
 		     
