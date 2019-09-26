@@ -10,13 +10,21 @@ stages {
 		     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/DevOpsClassCodes.git']]])
 		       }
 		     }
-	stage ('BuildIn'){		
+	stage ('Compile'){		
 		steps {				
-			sh 'mvn clean compile'
-			sh 'mvn test'
-			sh "mvn package"			
+			sh 'mvn clean compile'								
 		}			
 	}
+	 stage('Test') {
+            steps {
+                /* `make check` returns non-zero on test failures,
+                * using `true` to allow the Pipeline to continue nonetheless
+                */
+		sh 'mvn test'		
+                junit '**/target/*.xml' 
+		sh 'mvn package'
+            }
+        }
 	
 	stage('ArchiveArtifacts'){
             steps {                
