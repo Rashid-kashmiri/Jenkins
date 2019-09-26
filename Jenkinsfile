@@ -1,9 +1,15 @@
 pipeline {
 	
 agent any
-options { timestamps () }	
+  // options { timestamps () }
 stages {	
-	stage ('Checkout Code'){
+	  steps {
+    script {
+        def now = new Date()
+        println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
+    }
+  } 
+	stage ('Checkout Code'){	
 		steps {	
 		     
 		     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/DevOpsClassCodes.git']]])
