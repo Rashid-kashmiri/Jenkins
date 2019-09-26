@@ -8,7 +8,7 @@ stages {
 		     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/DevOpsClassCodes.git']]])
 		       }
 		     }
-	stage ('BuildIn){
+	stage ('BuildIn'){
 		steps {				
 			sh 'mvn clean compile'
 			sh 'mvn test'
