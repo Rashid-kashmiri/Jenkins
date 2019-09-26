@@ -1,12 +1,10 @@
 pipeline {
 	
 agent any
-import java.text.SimpleDateFormat	
-node {
-    def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
-    def date = new Date()
 
-    println(dateFormat.format(date))
+node {
+    def date = new Date()
+    println date
 }
 	
   // options { timestamps () }
