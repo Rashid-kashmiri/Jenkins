@@ -3,8 +3,13 @@ pipeline {
  agent any
 	
 stages {
+	
+	timestamps {
+    // some block
+		}
 	stage ('Checkout Code'){
-		steps {		
+		steps {	
+		     
 		     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/DevOpsClassCodes.git']]])
 		       }
 		     }
