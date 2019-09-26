@@ -18,7 +18,7 @@ stages {
 	
 	stage('ArchiveArtifacts'){
             steps {                
-                archiveArtifacts artifacts: '**/target/*.war', fingerprint: true , onlyIfSuccessful: true
+                archiveArtifacts artifacts: '**/target/*.war', fingerprint: true , onlyIfSuccessful: true		   
             }
         }
     }
