@@ -3,12 +3,6 @@ pipeline {
 agent any
   // options { timestamps () }
 stages {	
-	  steps {
-    script {
-        def now = new Date()
-        println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
-    }
-  } 
 	stage ('Checkout Code'){	
 		steps {	
 		     
@@ -16,6 +10,12 @@ stages {
 		       }
 		     }
 	stage ('BuildIn'){
+		steps {
+    			script {
+        		def now = new Date()
+        		println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
+                          }
+                        } 
 		steps {				
 			sh 'mvn clean compile'
 			sh 'mvn test'
