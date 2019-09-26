@@ -6,7 +6,7 @@ node {
 pipeline {
 	
 agent any
-  options { timestamps () }
+  // options { timestamps () }
 		
 stages {	
 	stage ('Checkout Code'){	
