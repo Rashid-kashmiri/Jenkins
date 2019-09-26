@@ -8,7 +8,7 @@ stages {
 		     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/Jenkins.git']]])
 		       }
 			}
-	stage (Build){
+	stage ('Build'){
 		steps {
 			sh 'make' 
 			sh 'mvn clean compile'
