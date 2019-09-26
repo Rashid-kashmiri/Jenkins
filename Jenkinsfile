@@ -1,7 +1,13 @@
+node {
+    def date = new Date()
+
+    println date
+}
 pipeline {
 	
 agent any
-  // options { timestamps () }
+  options { timestamps () }
+		
 stages {	
 	stage ('Checkout Code'){	
 		steps {	
@@ -14,13 +20,7 @@ stages {
 			sh 'mvn clean compile'
 			sh 'mvn test'
 			sh "mvn package"			
-		}
-		steps {
-    			script {
-        		def now = new Date()
-        		println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
-                }
-               } 		
+		}			
 	}
 	
 	stage('ArchiveArtifacts'){
