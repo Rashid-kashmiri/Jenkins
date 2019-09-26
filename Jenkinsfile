@@ -5,14 +5,16 @@ pipeline {
 stages {
 	stage ('Checkout Code'){
 		steps {		
-		     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/Jenkins.git']]])
+		     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/mvnrepo.git']]])
 		       }
-			}
+		     }
 	stage ('Build'){
-		steps {			
+		steps {	
+			sh 'make'
 			sh 'mvn clean compile'
 			sh 'mvn test'
-			sh "mvn package"			
+			sh "mvn package"
+			archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 			}		
 		}
 	   }   
