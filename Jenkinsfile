@@ -3,36 +3,21 @@ pipeline {
  agent any
 	
 stages {
-	    stage ('Checkout Code'){
-	     steps {
-		 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/nvnshoppingcart.git']]])
-	     }
-		}
-
-	     stage ('***COMPILE THE CODE***'){
+	stage ('Checkout Code'){
+		steps {		
+		     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Rashid-kashmiri/Jenkins.git']]])
+		       }
+			}
+	stage (Build){
 		steps {
-		sh 'mvn clean compile'
+			sh 'make' 
+			sh 'mvn clean compile'
+			sh 'mvn test'
+			sh "mvn package"
+			archiveArtifacts artifacts: '**/target/*.war', fingerprint: true 
+			}		
 		}
-	      }
-
-	     stage ('***First TEST THE CODE***'){
-		steps{
-		sh 'mvn test'	
-		}
-	      }
-
-	     stage ('***PACKAGE THE CODE***'){
-		steps{
-		sh "mvn package"
-		}	
-	     }
-
-	     stage ('***Deploy to Nexus***'){
-		//sh 'rm /var/lib/tomcat/webapps/nvnshoppingcart*'
-	      steps{
-		sh 'sudo cp **/*.war /opt/Jenkins/'	
-		}	       
-	      }	   
-	  }		
-	}
+	   }   
+	  }	
+	
 
