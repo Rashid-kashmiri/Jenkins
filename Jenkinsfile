@@ -13,8 +13,7 @@ stages {
 			sh 'make' 
 			sh 'mvn clean compile'
 			sh 'mvn test'
-			sh "mvn package"
-			archiveArtifacts artifacts: '**/target/*.war', fingerprint: true 
+			sh "mvn package"			
 			}		
 		}
 	   }   
