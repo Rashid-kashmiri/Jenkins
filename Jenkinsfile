@@ -1,11 +1,14 @@
-node {
-    def date = new Date()
-
-    println date
-}
 pipeline {
 	
 agent any
+	
+node {
+    def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
+    def date = new Date()
+
+    println(dateFormat.format(date))
+}
+	
   // options { timestamps () }
 		
 stages {	
