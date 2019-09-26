@@ -9,12 +9,10 @@ stages {
 		       }
 		     }
 	stage ('Build'){
-		steps {	
-			sh 'make'
+		steps {				
 			sh 'mvn clean compile'
 			sh 'mvn test'
-			sh "mvn package"
-			archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+			sh "mvn package"			
 			}		
 		}
 	   }   
