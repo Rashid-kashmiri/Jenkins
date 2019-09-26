@@ -1,13 +1,7 @@
 pipeline {
 	
 agent any
-
-node {
-    def date = new Date()
-    println date
-}
-	
-  // options { timestamps () }
+options { timestamps () }
 		
 stages {	
 	stage ('Checkout Code'){	
