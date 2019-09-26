@@ -12,15 +12,14 @@ stages {
 		steps {				
 			sh 'mvn clean compile'
 			sh 'mvn test'
-			sh "mvn package"
-			/target/addressbook.war
+			sh "mvn package"			
 		}		
 	}
 	
 	stage('BuildDonetoartifacts'){
             steps {
                 sh 'make' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+                archiveArtifacts artifacts: '**/target/*.war', fingerprint: true 
             }
         }
     }
