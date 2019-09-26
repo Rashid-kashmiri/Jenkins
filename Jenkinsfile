@@ -9,8 +9,7 @@ stages {
 		       }
 			}
 	stage ('Build'){
-		steps {
-			sh 'make' 
+		steps {			
 			sh 'mvn clean compile'
 			sh 'mvn test'
 			sh "mvn package"			
