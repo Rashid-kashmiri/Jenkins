@@ -17,8 +17,7 @@ stages {
 	}
 	
 	stage('ArchiveArtifacts'){
-            steps {
-                sh 'make' 
+            steps {                
                 archiveArtifacts artifacts: '**/target/*.war', fingerprint: true 
             }
         }
